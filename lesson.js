@@ -2,6 +2,8 @@ var lessonId = html5Iframe.src.split("/")[html5Iframe.src.split("/").length - 1]
 var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
 var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
 
+var slidesCompletedArr = [];
+var scoreArr = [];
 var slideCount;
 
 fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_term_unsecured&datatype=json`, {
@@ -23,8 +25,8 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_te
 	.then(function(data) {
 		slideCount = data.slideCompletedArr.length;
 
-		var slidesCompletedArr = [];
-		var scoreArr = [];
+		slidesCompletedArr = [];
+		scoreArr = [];
 
 		for (var i = 0; i < slideCount; i++) {
 			slidesCompletedArr.push(true);

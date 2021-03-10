@@ -28,7 +28,7 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${lessonId.split("_").j
 			slidesCompletedArr.push(true);
 		}
 
-		fetch("https://login.i-ready.com/student/v2/web/lesson_component/DI.MATH.GEO.8.1005.phx.10_71da0b35-cb71-4540-9e75-73203c6686dc_M_math/markprogress/DI.MATH.GEO.8.1005.phx.10_71da0b35-cb71-4540-9e75-73203c6686dc_M_math", {
+		fetch(`https://login.i-ready.com/student/v2/web/lesson_component//${lessonId.split("_").join(".").substring(0, lessonId.split("_").join(".").length - 3)}.phx.${lessonType}_71da0b35-cb71-4540-9e75-73203c6686dc_M_math/markprogress/DI.MATH.GEO.8.1005.phx.10_71da0b35-cb71-4540-9e75-73203c6686dc_M_math`, {
 			"headers": {
 				"accept": "*/*",
 				"accept-language": "en-US,en;q=0.9",

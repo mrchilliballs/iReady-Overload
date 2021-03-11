@@ -1,5 +1,5 @@
-# iReady-Breaker
-iReady is awful. It's the worst education tool anyone could ever use. This code is designed to skip through iready lessons and quizzes, giving you a passing score.
+# iReady-Overload
+iReady is awful. It's the worst education tool anyone could ever use. I'm fed up with being forced to mindlessly watch the result of a greedy corporation that doesn't even try to make their product enjoyable, or even acceptable, for an hour and a half every single week. This code is designed to rid people of this torment and will allow to skip through iready lessons and get 100% score on all quizzes.
 Because of the way iReady works, it will have to leave one lesson segment (usually 10-30 seconds) or one quiz question, but the quiz will always result in a score of 100%.
 
 # How to use

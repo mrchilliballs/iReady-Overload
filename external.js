@@ -3,7 +3,7 @@ var lessonType = getCookie("lessonType");
 var csid = getCookie("csid");
 var slidesCompletedArr = getCookie("slidesCompletedArr");
 var scoreArr = getCookie("scoreArr");
-var slideCount = getCookie("slideCount");
+var slideCount = parseInt(getCookie("slideCount"), 10);
 
 fetch(`https://login.i-ready.com/student/v2/web/lesson_component/${csid}/markprogress/${csid}`, {
 	"headers": {

@@ -35,5 +35,10 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_te
 			scoreArr.push(1);
 		}
 
-		document.cookie = `lessonId=${lessonId}; lessonType=${lessonType}; csid=${csid}; slidesCompletedArr=${slidesCompletedArr}; scoreArr=${scoreArr}; slideCount=${slideCount};`
+		document.cookie = `lessonId=${lessonId};`
+		document.cookie = `lessonType=${lessonType};`
+		document.cookie = `csid=${csid};`
+		document.cookie = `slidesCompletedArr=${slidesCompletedArr};`
+		document.cookie = `scoreArr=${scoreArr};`
+		document.cookie = `slideCount=${slideCount};`
 	});

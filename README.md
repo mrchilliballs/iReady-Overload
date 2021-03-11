@@ -8,3 +8,6 @@ Simply open an iReady lesson, use ctrl + shift + i or "inspect element" to open 
 Note that so far, it only works on math lessons and quizzes, not reading.
 
 If you see an error saying `Uncaught (in promise) SyntaxError: Unexpected end of JSON input`, then just close the lesson and try again.
+
+# Failsafe
+If something goes wrong and your lesson stops working, first try refreshing and opening the lesson again. If that doesn't work, open an iReady lesson, use ctrl + shift + i or "inspect element" to open developer tools, click on "console" and paste the code from [resetLesson.js](resetLesson.js) into the console and hit enter. Then, wait a second, click the "x" on the top right of the lesson to go the menu, and paste [external.js](external.js) in the console while on the menu. This should reset the lesson or quiz to its original state.

@@ -32,6 +32,6 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_te
 			slidesCompletedArr.push(true);
 			scoreArr.push(1);
 		}
-		
+
 		document.cookie = `lessonId=${lessonId}; lessonType=${lessonType}; csid=${csid}; slidesCompletedArr=${slidesCompletedArr}; scoreArr=${scoreArr}; slideCount=${slideCount};`
 	});

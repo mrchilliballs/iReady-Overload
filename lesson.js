@@ -1,12 +1,13 @@
 var lessonId = html5Iframe.src.split("/")[html5Iframe.src.split("/").length - 1];
 var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
+var subject = csid.includes("math") ? "math" : reading;
 var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
 
 var slidesCompletedArr = [];
 var scoreArr = [];
 var slideCount;
 
-fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_term_unsecured&datatype=json`, {
+html5Iframe.contentWindow.fetch(`https://cdn.i-ready.com/instruction/phoenix-content/${subject}/${lessonId}/lessonStructure.json`, {
 		"headers": {
 			"accept": "application/json, text/plain, */*",
 			"accept-language": "en-US,en;q=0.9",
@@ -23,7 +24,8 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_te
 		"credentials": "include"
 	}).then(response => response.json())
 	.then(function(data) {
-		slideCount = data.slideCompletedArr.length;
+console.log();
+		slideCount = data.lessonStructureObj.slideData.length;
 
 		slidesCompletedArr = [];
 		scoreArr = [];
@@ -35,6 +37,7 @@ fetch(`https://login.i-ready.com/student/v2/web/appstate/${csid}?bucket=short_te
 
 		document.cookie = `lessonId=${lessonId};`
 		document.cookie = `lessonType=${lessonType};`
+		document.cookie = `subject=${subject};`
 		document.cookie = `csid=${csid};`
 		document.cookie = `slidesCompletedArr=${slidesCompletedArr};`
 		document.cookie = `scoreArr=${scoreArr};`

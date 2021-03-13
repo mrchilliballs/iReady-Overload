@@ -1,7 +1,7 @@
 // gets lesson data
-var lessonId = html5Iframe.src.split("/")[html5Iframe.src.split("/").length - 1];
-var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
 var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
+var lessonId = (csid.split(".phx")[0] + csid.split(".phx")[1].split("_")[0]).split(".").join("_");
+var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
 var subject = csid.includes("math") ? "math" : "reading";
 
 // empty global variables for later use
@@ -27,19 +27,19 @@ html5Iframe.contentWindow.fetch(`https://cdn.i-ready.com/instruction/phoenix-con
 		"credentials": "include"
 	}).then(response => response.json())
 	.then(function(data) {
-console.log();
+		console.log();
 		slideCount = data.lessonStructureObj.slideData.length;
 
 		slidesCompletedArr = [];
 		scoreArr = [];
 
-        // creates score and completion arrays with the length neccessary
+		// creates score and completion arrays with the length neccessary
 		for (var i = 0; i < slideCount; i++) {
 			slidesCompletedArr.push(true);
 			scoreArr.push(1);
 		}
 
-        // sets cookies for external.js to use
+		// sets cookies for external.js to use
 		document.cookie = `lessonId=${lessonId};`
 		document.cookie = `lessonType=${lessonType};`
 		document.cookie = `subject=${subject};`

@@ -2,8 +2,8 @@
 
 var lessonId = html5Iframe.src.split("/")[html5Iframe.src.split("/").length - 1];
 var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
-var subject = csid.includes("math") ? "math" : "reading";
 var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
+var subject = csid.includes("math") ? "math" : "reading";
 
 var slidesCompletedArr = [];
 var scoreArr = [];

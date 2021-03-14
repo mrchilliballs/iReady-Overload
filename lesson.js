@@ -1,6 +1,6 @@
 // gets lesson data
+var lessonId = html5Iframe.src.split("/")[html5Iframe.src.split("/").length - 1];
 var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
-var lessonId = (csid.split(".phx")[0] + csid.split(".phx")[1].split("_")[0]).split(".").join("_");
 var lessonType = lessonId.split("_")[lessonId.split("_").length - 1];
 var subject = csid.includes("math") ? "math" : "reading";
 

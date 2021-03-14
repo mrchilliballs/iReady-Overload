@@ -1,6 +1,6 @@
 // gets lesson data
-var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
-var score = csid.includes("_10") ? null : "{\"score\":100}"; // you can replace the "100" with any score you want if this is pasted on a quiz.
+let csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
+let score = csid.includes("_10") ? null : "{\"score\":100}"; // you can replace the "100" with any score you want if this is pasted on a quiz.
 
 // tricks server into thinking specific lesson was completed
 fetch("https://login.i-ready.com/student/lesson/componentCompleted", {

@@ -5,7 +5,7 @@ Because of the way iReady works, it will have to leave one lesson segment (usual
 # How to use
 Simply open an iReady lesson, use ctrl + shift + i or "inspect element" to open developer tools, click on "console" and paste the code from [lesson.js](lesson.js) into the console and hit enter. Then, wait a second, refresh the page, open the "to-do dashboard", and paste [external.js](external.js) in the console while on the menu.
 
-Note that so far, it only works on math lessons and quizzes, not reading.
+Note that so far, it works on all lessons and quizzes except the advanced reading lessons/quizzes where you read a story and fill in blanks.
 
 If you see an error saying `Uncaught (in promise) SyntaxError: Unexpected end of JSON input`, then just close the lesson and try again.
 

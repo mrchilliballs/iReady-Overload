@@ -1,0 +1,9 @@
+# Minutes Hack
+This hack lets you add minutes to your account. Saddly, because of the way iReady works, you have to leave the website open, but you won't have to do anything while the hack does it's thing, you can even use your computer.
+
+# How to Use
+Simply open an iReady lesson, use ctrl + shift + i or "inspect element" to open developer tools, click on "console" and paste the code from [lesson.js](lesson.js) into the console and hit enter (note that this lesson.js is different from the one in the lesson skipper). Then, close the lesson, open the console once again, and paste the contents of [external.js](external.js), hit enter, and wait the number of minutes that you entered. Then, when you refresh the page, you should see the minutes you entered previously were added to your account. It is only safe to close/refresh the tab if there is a message saying something like "__ minutes have been added to the account. Refresh and they should be there," otherwise, no minutes will be added.
+Sure, you could just leave a lesson running, but the problem with that is that lessons pause themselves automatically after some time and when you are on a different tab/app, while this hack works regardless. It is important, however, that your device remains on and the site remains open.
+
+# Alternate Method
+An alternate method is to simply open an iReady lesson, use ctrl + shift + i or "inspect element" to open developer tools, click on "console" and paste the code from [lesson.js](lesson.js) into the console and hit enter (note that this lesson.js is different from the one in the lesson skipper). Then, close the lesson. At this point, you can do anything you want with your computer, shut it down even. Just make sure to open iReady back up, paste the contents of [failsafe.js](failsafe.js) into the console, and when you refresh, the minutes you waited since you pasted lesson.js should be added to your lesson count.

@@ -1,3 +1,5 @@
+csid = getCookie("csid");
+
 // sends fetch request to stop timer and update time
 fetch(`https://login.i-ready.com/student/v1/web/lesson_component/${csid}?action=pause`, {
 	"headers": {
@@ -14,3 +16,19 @@ fetch(`https://login.i-ready.com/student/v1/web/lesson_component/${csid}?action=
 	"mode": "cors",
 	"credentials": "include"
 });
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}

@@ -1,3 +1,5 @@
+// IMPORTANT: if this is a close reading lesson, make sure to hit play before using it. IT WILL BREAK OTHERWISE.
+
 var csid;
 var score = "{\"score\":100}";
 

@@ -10,18 +10,6 @@ else // normal lesson
     csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];   
 }
 
-var csid;
-var score = "{\"score\":100}";
-
-//close reading lesson
-if(document.getElementsByTagName("iframe")[0].id == "closereading_lesson"){
-    csid = closereading_lesson.src.split("?csid=")[1].split("#")[0];
-}
-else // normal lesson
-{
-    csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];   
-}
-
 // tricks server into thinking specific lesson was completed
 fetch("https://login.i-ready.com/student/lesson/componentCompleted", {
   "headers": {

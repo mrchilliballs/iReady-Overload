@@ -1,6 +1,26 @@
-// gets lesson data
-var csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];
-var score = csid.includes("10_") ? null : "{\"score\":100}"; // you can replace the "100" with any score you want if this is pasted on a quiz.
+var csid;
+var score = "{\"score\":100}";
+
+//close reading lesson
+if(document.getElementsByTagName("iframe")[0].id == "closereading_lesson"){
+    csid = closereading_lesson.src.split("?csid=")[1].split("#")[0];
+}
+else // normal lesson
+{
+    csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];   
+}
+
+var csid;
+var score = "{\"score\":100}";
+
+//close reading lesson
+if(document.getElementsByTagName("iframe")[0].id == "closereading_lesson"){
+    csid = closereading_lesson.src.split("?csid=")[1].split("#")[0];
+}
+else // normal lesson
+{
+    csid = html5Iframe.src.split("?csid=")[1].split("&type")[0];   
+}
 
 // tricks server into thinking specific lesson was completed
 fetch("https://login.i-ready.com/student/lesson/componentCompleted", {

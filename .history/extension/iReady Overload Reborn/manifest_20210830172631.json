@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "iReady Overload Reborn",
+    "version": "1",
+    "action": {
+        "default_icon": {
+            "128": "icon.png"
+          },
+          "default_title": "Click Me",
+          "default_popup": "popup.html"
+    }
+  }

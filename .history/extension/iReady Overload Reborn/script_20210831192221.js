@@ -1,0 +1,1 @@
+const ireadydocument.querySelector("iready-img")

@@ -13,17 +13,17 @@
     "web_accessible_resources": [
       {
         "resources": [ "icon.png", "iready-script.js", "libs/bootstrap-5.0.2-dist/css/bootstrap-iso.min.css"],
-        "matches": [ "https://login.i-ready.com/*" ]
+        "matches": [ "https://login.i-ready.com/*", "*://example.com/*" ]
       }
     ],
     "content_scripts": [
       {
         "js": ["content.js"],
-        "matches": ["*://login.i-ready.com/*"]
+        "matches": ["*://login.i-ready.com/*", "*://example.com/*"]
       },
       {
-        "js": ["iready-script.js"],
-        "matches": ["*://login.i-ready.com/*"]
+        "js": ["collapse.js"],
+        "matches": ["*://login.i-ready.com/*", "*://example.com/*"]
       }
     ]
   }

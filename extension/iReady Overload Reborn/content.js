@@ -97,27 +97,41 @@ const diagnosticSkipButton = document.querySelector("#diagnostic");
 //recieves popup settings___________________________________________
 chrome.runtime.onMessage.addListener(msgObj => {
     //adds values to localstorage
-    console.log("response from popup.js:")
-    console.log(msgObj)
+    console.log("response from popup.js:");
+    console.log(msgObj);
     for (const setting of Object.keys(msgObj)) {
-        console.log(setting)
-        console.log("localstorage item", setting.toString(), "set to", msgObj[setting])
-        localStorage.setItem(setting.toString(), msgObj[setting])
+        console.log(setting);
+        console.log("localstorage item", setting.toString(), "set to", msgObj[setting]);
+        localStorage.setItem(setting.toString(), msgObj[setting]);
     }
 });
+//sets background
+popup.style.backgroundColor = localStorage.getItem("background_color");
+//sets display
+if(localStorage.getItem("show") == false){
+    popup.style.display = "none";
+} else {
+    popup.style.display = "block";
+}
+popup.style.color = localStorage.getItem("color");
+if(localStorage.getItem("rounded") == false){
+    popup.classList.remove("rounded-circle-1");
+} else {
+    popup.classList.add("rounded-circle-1")
+}
 console.log(picture, collapse, popup)
 //event listener for toggling exapanded class
 picture.addEventListener("click", ()=>{
     if(collapse.classList.contains("hidden")){
-        popup.classList.toggle("expanded")
+        popup.classList.toggle("expanded");
         picture.classList.toggle("less-margin");
         setTimeout(()=>{
-            collapse.classList.toggle("hidden")
+            collapse.classList.toggle("hidden");
         }, 200)
     } else {
-        collapse.classList.toggle("hidden")
+        collapse.classList.toggle("hidden");
         setTimeout(()=>{
-            popup.classList.toggle("expanded")
+            popup.classList.toggle("expanded");
             picture.classList.toggle("less-margin");
         }, 200)
     }
@@ -157,7 +171,7 @@ timeButton.addEventListener("click", ()=>{
 			buttonId.innerText = "Farm minutes";
 			minuteFarming = false;
 
-			changeText("The minutes should now be in your account.");
+			alert("The minutes should now be in your account.");
 		}
 		// checks if lesson/quiz is open
 		if (!!window["html5Iframe"]) {
@@ -169,10 +183,10 @@ timeButton.addEventListener("click", ()=>{
 			document.cookie = `csid=${csid}; expires=Thu, 18 Dec 2999 12:00:00 UTC"`;
 			document.cookie = `minutes=${minutes}; expires=Thu, 18 Dec 2999 12:00:00 UTC"`;
 
-			changeText("Neccessary data to farm minutes have now been collected. To begin farming minutes, go to the iReady menu by closing this lesson/quiz. Then, press this button again.");
+			alert("Neccessary data to farm minutes have now been collected. To begin farming minutes, go to the iReady menu by closing this lesson/quiz. Then, press this button again.");
 		} else if (!getCookie("csid")) {
 			// lesson isn't open and cookie isnt set
-			changeText("You do not have a lesson currently open. You must open a lesson to begin the proccess.")
+			alert("You do not have a lesson currently open. You must open a lesson to begin the proccess.")
 		} else {
 			// lesson isn't open and cookie is set
 			csid = getCookie("csid");
@@ -198,7 +212,7 @@ timeButton.addEventListener("click", ()=>{
 			minuteFarming = true;
 			buttonId.innerText = "Stop farming minutes";
 
-			changeText("The minute farming proccess has now begun. Do not close this page. Do not turn off your computer. After you press \"ok,\" every minute that passes will be added to your account. When you want to stop the timer and add the farmed minutes to your account, press the button labeled \"Stop farming minutes\". Press \"ok\" to begin.");
+			alert("The minute farming proccess has now begun. Do not close this page. Do not turn off your computer. After you press \"ok,\" every minute that passes will be added to your account. When you want to stop the timer and add the farmed minutes to your account, press the button labeled \"Stop farming minutes\". Press \"ok\" to begin.");
 		}
 })
 //event listener for diagsnostic skip button
@@ -209,12 +223,12 @@ diagnosticSkipButton.addEventListener("click", ()=>{
 			// disables hack
 			XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.realSend;
 			XMLHttpRequest.prototype.realSend = undefined;
-			changeText("Hack was disabled.")
+			alert("Hack was disabled.")
 			buttonId.innerText = "Enable hack";
 		} else {
 			// checks if diagnostic is open
 			if (typeof diagnosticIFrame == "undefined") {
-				changeText("Diagnostic not detected. Open the diagnostic first to use the hack.")
+				alert("Diagnostic not detected. Open the diagnostic first to use the hack.")
 			} else if (!XMLHttpRequest.prototype.realSend) {
 				var duration = 1000;
 
@@ -229,7 +243,7 @@ diagnosticSkipButton.addEventListener("click", ()=>{
 					// sends actual request
 					this.realSend(JSON.stringify(newBody));
 				}
-				changeText("Hack was enabled. All answers inputted in diagnostic will be correct. Please do not answer questions too fast or your test will be marked as rushed.");
+				alert("Hack was enabled. All answers inputted in diagnostic will be correct. Please do not answer questions too fast or your test will be marked as rushed.");
 				buttonId.innerText = "Disable hack";
 			}
 		}
@@ -238,7 +252,7 @@ diagnosticSkipButton.addEventListener("click", ()=>{
 skipButton.addEventListener("click", ()=>{
     //midgetfuckers lesson skip script
     if (!window["html5Iframe"] && !window["closereading_lesson"]) {
-        changeText("You do not have a lesson currently open. You must open a lesson to skip it.");
+        alert("You do not have a lesson currently open. You must open a lesson to skip it.");
     }
     else {
         var csid;
@@ -273,7 +287,7 @@ skipButton.addEventListener("click", ()=>{
             "credentials": "include"
         });
 
-        changeText("Close the lesson/quiz and you should see it was skipped.");
+        alert("Close the lesson/quiz and you should see it was skipped.");
     }
 })
 //getcookie funtion by midgetfucker

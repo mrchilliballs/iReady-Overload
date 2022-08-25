@@ -1,2 +1,3 @@
 # iReady-Overload-Reborn
-This repository has been shutdown because am too lazy to maintain it and I have other projects to work on
+This is an archive of the first iReady Overload made by ArjhanToteck and modified by me. 
+This repository has been archived as I have moved to GitLab and this hasn't worked for a long time.
